@@ -1,13 +1,13 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Awesome Books</b></h3>
+  <h3><b>To Do List</b></h3>
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Awesome Books ](#-Awesome-books-)
+- [📖 To Do List ](#-Awesome-books-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -22,7 +22,7 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 📖 Awesome Books <a name="about-project"></a>
+# 📖 To Do List <a name="about-project"></a>
 
 **To DO List** This project is a simple JavaScript-based to-do list application that allows users to add, remove, and mark tasks as completed. It provides an intuitive and user-friendly interface to manage your daily tasks effectively.
 
