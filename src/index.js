@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const taskContainer = document.querySelector('.list--container');
 const tasks = [
-    {
+   {
         description: 'wash the dishes',
         completed: false,
         id: uuidv4()
