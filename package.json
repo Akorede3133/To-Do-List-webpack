@@ -29,6 +29,8 @@
   "dependencies": {
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "uuid": "^9.0.0",
+    "uuidv4": "^6.2.13"
   }
 }
