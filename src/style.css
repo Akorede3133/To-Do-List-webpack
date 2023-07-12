@@ -121,10 +121,13 @@ i.fa-solid {
   display: none;
 }
 
+.list--item.hide--desc {
+  background-color: rgba(255, 166, 0, 0.367);
+}
+
 .list--item.hide--desc input[type='text'] {
   display: block;
-  background-color: rgba(255, 166, 0, 0.367);
-  padding: 15px 5px;
+  background-color: inherit;
 }
 
 .list--item.hide--desc .fa-trash-can {
