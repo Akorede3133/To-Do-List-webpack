@@ -34,7 +34,7 @@ header h1 {
   color: gray;
 }
 
-form {
+.todo--form {
   width: 100%;
   border: 1px solid rgba(168, 127, 127, 0.419);
   border-left: none;
@@ -43,7 +43,7 @@ form {
   display: flex;
 }
 
-form input {
+.todo--form input {
   border: none;
   padding: 15px 10px;
   outline: none;
@@ -62,9 +62,11 @@ i.fa-solid {
 .list--item {
   display: flex;
   justify-content: space-between;
+  gap: 0.3rem;
   align-items: center;
   border-top: 1px solid rgba(128, 128, 128, 0.419);
   padding: 15px 10px;
+  position: relative;
 }
 
 .list--item:last-child {
@@ -79,10 +81,27 @@ i.fa-solid {
   background-color: white;
 }
 
-.list--item > div {
+.list--item input[type='text'] {
+  width: 100%;
+  border: none;
+  height: 100%;
+  outline: none;
+  display: none;
+}
+
+.list--item .desc---container {
+  width: 100%;
+}
+
+.list--item .first--flex {
   display: flex;
   gap: 0.6rem;
   align-items: center;
+  width: 100%;
+}
+
+.list--item > i {
+  cursor: all-scroll;
 }
 
 .list--item input[type='checkbox'] {
@@ -92,6 +111,31 @@ i.fa-solid {
 .list--item p {
   font-size: 1rem;
   color: gray;
+}
+
+.list--item .fa-trash-can {
+  display: none;
+}
+
+.list--item.hide--desc p {
+  display: none;
+}
+
+.list--item.hide--desc {
+  background-color: rgba(255, 166, 0, 0.367);
+}
+
+.list--item.hide--desc input[type='text'] {
+  display: block;
+  background-color: inherit;
+}
+
+.list--item.hide--desc .fa-trash-can {
+  display: block;
+}
+
+.list--item.hide--desc .fa-ellipsis-vertical {
+  display: none;
 }
 
 .clear--btn {
