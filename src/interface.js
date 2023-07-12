@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable import/no-cycle */
 import {
   addTaskToTasksArray, deleteTaskFromArray, editTaskDescription, tasks,
 } from './add_and_remove.js';
@@ -32,11 +31,13 @@ function populateTasks() {
   taskContainer.insertAdjacentHTML('beforeend', element);
   const optionsIcon = document.querySelectorAll('.fa-ellipsis-vertical');
   const deleteIcons = document.querySelectorAll('.fa-trash-can');
+
   optionsIcon.forEach((icon) => {
     icon.addEventListener('click', (e) => {
       handleEditAndDeleteOptions(e);
     });
   });
+
   deleteIcons.forEach((icon) => {
     icon.addEventListener('click', (e) => {
       deleteFromUI(e);

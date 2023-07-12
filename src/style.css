@@ -80,6 +80,7 @@ i.fa-solid {
 .list--item button {
   background-color: white;
 }
+
 .list--item input[type='text'] {
   width: 100%;
   border: none;
@@ -87,15 +88,18 @@ i.fa-solid {
   outline: none;
   display: none;
 }
+
 .list--item .desc---container {
   width: 100%;
 }
+
 .list--item .first--flex {
   display: flex;
   gap: 0.6rem;
   align-items: center;
   width: 100%;
 }
+
 .list--item > i {
   cursor: all-scroll;
 }
@@ -108,20 +112,25 @@ i.fa-solid {
   font-size: 1rem;
   color: gray;
 }
+
 .list--item .fa-trash-can {
   display: none;
 }
+
 .list--item.hide--desc p {
   display: none;
 }
+
 .list--item.hide--desc input[type='text'] {
   display: block;
   background-color: rgba(255, 166, 0, 0.367);
   padding: 15px 5px;
 }
+
 .list--item.hide--desc .fa-trash-can {
   display: block;
 }
+
 .list--item.hide--desc .fa-ellipsis-vertical {
   display: none;
 }
