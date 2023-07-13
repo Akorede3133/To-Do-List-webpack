@@ -1,36 +1,45 @@
 /* eslint-disable no-use-before-define */
 import {
-  addTaskToTasksArray, deleteTaskFromArray, editTaskDescription, tasks,
+  addTaskToTasksArray,
+  deleteTaskFromArray,
+  editTaskDescription,
+  tasks,
+  updateCompletionStatus,
+  clearAllCompletedTasks,
 } from './add_and_remove.js';
 import { addToLocalStorage } from './localstorage.js';
+// import updateCompletionStatus from './complete.js';
 
 const form = document.querySelector('.todo--form');
 const formInput = form.querySelector('input');
 const taskContainer = document.querySelector('.list--container');
+const clearBtn = document.querySelector('.clear--btn');
 
 function populateTasks() {
   taskContainer.innerHTML = '';
   const element = tasks.map((task) => {
+    const { completed } = task;
     const li = `<li class="list--item">
-    <div class="first--flex">
-        <input type="checkbox" name="" id="">
-        <div class="desc---container">
-            <p class="desc">${task.desc}</p>
-            <form action="" class="edit--form">
-              <input type="text" name="" id="" class="edit--input">
-            </form>
-        </div>
-    </div>
-    <div class="second--flex">
-      <i class="fa-solid fa-ellipsis-vertical" data--option=${task.index}></i>
-      <i class="fa-solid fa-trash-can" data--trash=${task.index}></i>
-    </div>
-</li>`;
+      <div class="first--flex">
+          <input type="checkbox" name="" id=${task.index} class="check" ${completed ? 'checked' : ''} >
+          <div class="desc---container">
+              <p class="desc ${completed && 'strike--through'}">${task.desc}</p>
+              <form action="" class="edit--form">
+                <input type="text" name="" id="" class="edit--input">
+              </form>
+          </div>
+      </div>
+      <div class="second--flex">
+        <i class="fa-solid fa-ellipsis-vertical" data--option=${task.index}></i>
+        <i class="fa-solid fa-trash-can" data--trash=${task.index}></i>
+      </div>
+    </li>`;
     return li;
   }).join('');
   taskContainer.insertAdjacentHTML('beforeend', element);
   const optionsIcon = document.querySelectorAll('.fa-ellipsis-vertical');
   const deleteIcons = document.querySelectorAll('.fa-trash-can');
+  const checkBoxes = document.querySelectorAll('.check');
 
   optionsIcon.forEach((icon) => {
     icon.addEventListener('click', (e) => {
@@ -44,20 +53,31 @@ function populateTasks() {
       populateTasks();
     });
   });
+  checkBoxes.forEach((checkBox) => {
+    checkBox.addEventListener('change', (e) => {
+      const { id } = e.target;
+      const parent = e.target.parentElement.parentElement;
+      const pTag = parent.querySelector('.desc');
+      pTag.classList.toggle('strike--through');
+      updateCompletionStatus(+id);
+      addToLocalStorage();
+    });
+  });
 }
 /* **Handle Option menu** */
 const handleEditAndDeleteOptions = (e) => {
   const index = e.target.dataset.Option;
   const parent = e.target.parentElement.parentElement;
   const editInput = parent.querySelector('.edit--input');
-  const desc = parent.querySelector('.desc').textContent;
+  const desc = parent.querySelector('.desc');
   const editForm = parent.querySelector('.edit--form');
   parent.classList.add('hide--desc');
-  editInput.value = desc;
+  editInput.value = desc.textContent;
   editInput.focus();
   editForm.addEventListener('submit', () => {
     const { value } = editInput;
     editTaskDescription(+index, value);
+    addToLocalStorage();
     populateTasks();
   });
 };
@@ -80,4 +100,9 @@ form.addEventListener('submit', (e) => {
   }
 });
 
+clearBtn.addEventListener('click', () => {
+  clearAllCompletedTasks();
+  addToLocalStorage();
+  populateTasks();
+});
 export default populateTasks;

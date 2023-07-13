@@ -24,10 +24,24 @@ const editTaskDescription = (index, value) => {
     return task;
   });
 };
+const updateCompletionStatus = (index) => {
+  tasks = tasks.map((task) => {
+    if (task.index === index) {
+      task.completed = !task.completed;
+    }
+    return task;
+  });
+};
+
+const clearAllCompletedTasks = () => {
+  tasks = tasks.filter((task) => !task.completed);
+};
 
 export {
   tasks,
   addTaskToTasksArray,
   deleteTaskFromArray,
   editTaskDescription,
+  updateCompletionStatus,
+  clearAllCompletedTasks,
 };
