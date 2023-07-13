@@ -120,10 +120,12 @@ i.fa-solid {
 .list--item.hide--desc p {
   display: none;
 }
+
 .strike--through {
   text-decoration: line-through;
   opacity: 0.7;
 }
+
 .list--item.hide--desc {
   background-color: rgba(255, 166, 0, 0.367);
 }
